@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table2.html</title>
+</head>
+<body>
+    <style>
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0d382f;
+            color: white;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #80e6d2;
+            margin-bottom: 10px;
+        }
+      
+        .table-box {
+            padding: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 3px;
+            min-width: 600px;
+           background: linear-gradient(#0f4343, #3b7e85, #3ecebf);
+        }
+        th {
+            color: #65d6c0;
+            padding: 16px;
+        }
+       
+        th {
+            background: rgba(77, 144, 192, 0.587);
+        }
+
+        td { 
+            color: #79edcc;
+            padding: 10px;
+            text-align: center;
+            transition: 0.3s;
+            background: #3da0ab;
+        }
+        td:first-child {
+            color: #79edcc;
+            font-weight: bold;
+        }
+    
+        tbody tr:hover td {
+            background: #264863;
+        }
+        .today td {
+            background: #3da0ab;
+            border-top: 2px solid #80e6d2;
+            border-bottom: 2px solid #80e6d2;
+        }
+        .today td:first-child {
+            border-left: 2px solid #80e6d2;
+        }
+        .today td:last-child {
+            border-right: 2px solid #80e6d2;
+        }
+        .back {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background: #349180;
+            color: #2a3a38;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        .back:hover {
+            background: #3c8ec1;
+        }
+
+        @media (max-width: 600px) {
+            .info {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            #search {
+                width: 100%;
+            }
+        }
+
+         h4 {
+            margin-top: 0px;
+            margin-bottom: 5px;
+            text-align: middle;
+        }
+
+        .footer {
+            text-align: center;
+            color:#47807a;
+            width: 100%;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+
+    </style>
+
+       <div class="container">
+        <h1>Jadwal Laboraturium</h1>
+
+        <table border="1" width="100%" cellpadding="3" cellspacing="5">
+    <tr>
+        <th colspan="1">
+        <h4>Jadwal Laboraturium Komputer</h4>
+        </th>
+    </tr>
+          
+    <div class="table-box">
+        <table border="1" width="100%" cellpadding="3" cellspacing="3">
+        <tr>
+            <th rowspan= "2"> Hari</th>
+            <th colspan= "4">Pagi</th>   
+            <th colspan= "4"> Siang</th> 
+            <th rowspan= "2"> Keterangan</th>
+        </tr>
+        <th colspan="2">08:00-10:00</th><th colspan="2">10:00-12:00</th>
+         <th colspan="2">13:00-15:00</th><th colspan="2">15:00-17:00</th>
+        
+         <tr>
+            <td rowspan= "2"> Senin</td>
+            <td colspan="2">Web 1</td> 
+            <td colspan="2">Web 2</td>
+            <td colspan="4">Praktikum Basis Data</td>
+            <td colspan="2" rowspan="2">Normal</td>
+            <tr>
+            <td colspan="4">Praktikum Pemograman</td>
+            <td colspan="2">Jaringan</td>
+            <td colspan="2">Jaringan</td>
+            </tr>
+        </tr>
+         <tr>
+            <td rowspan= "1"> Selasa</td>
+            <td colspan="4">Seminar</td>
+            <td colspan="2">Mobile</td><td colspan="2">Mobile</td>
+            <td colspan="2">Seminar Pagi</td>   
+      <tr>
+            <td rowspan= "2">Rabu</td>
+            <td colspan="2">Web</td>
+            <td colspan="2">Web</td>
+            <td colspan="4" rowspan="2">Maintenance Laboraturium</td>
+            <td colspan="2" rowspan="2">Maintenance</td><tr>
+            <td colspan="4">Basis Data</td>
+            </tr>
+        <tr>
+            <td>Kamis</td>
+            <td colspan="2">Algoritma</td><td colspan="2">Algoritma</td>
+            <td colspan="4">Praktikum Jaringan</td>
+            <td colspan="2">Seminar Pagi</td>   
+      <tr>
+        <tr>
+            <th colspan= "9">Catatan</th>
+            <td colspan="2">Jadwal dapat berubah</td>
+         </tr>
+      </table>
+    </div>
+    <a href="index.html" class="back">← Kembali ke Home</a>
+</div>
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Personal Website Sifa Nurfariza</p>
+    </footer>
+<script>
+         document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course-Schedule.html</title>
+</head>
+<body>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0d382f;
+            color: white;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #80e6d2;
+            margin-bottom: 10px;
+        }
+      
+        
+        .table-box {
+            padding: 10px;
+            border-radius: 22px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 3px;
+            min-width: 600px;
+           background: linear-gradient(#0f4343, #3b7e85, #3ecebf);
+        }
+        th {
+            background: rgba(77, 144, 192, 0.587);
+            color: #65d6c0;
+            padding: 8px;
+        }
+        th:first-child {
+            border-radius: 12px 0 0 12px;
+        }
+        th:last-child {
+            border-radius: 0 12px 12px 0;
+        }
+        td { 
+            color: #79edcc;
+            padding: 10px;
+            text-align: center;
+            transition: 0.3s;
+            background: #3da0ab;
+        }
+        td:first-child {
+            border-radius: 12px 0 0 12px;
+            color: #79edcc;
+            font-weight: bold;
+        }
+        td:last-child {
+            border-radius: 0 12px 12px 0;
+        }
+        tbody tr:hover td {
+           background: #1e666e;
+        }
+        .today td {
+            background: #3da0ab;
+            border-top: 2px solid #80e6d2;
+            border-bottom: 2px solid #80e6d2;
+        }
+        .today td:first-child {
+            border-left: 2px solid #80e6d2;
+        }
+        .today td:last-child {
+            border-right: 2px solid #80e6d2;
+        }
+        .back {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background: #349180;
+            color: #2a3a38;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        .back:hover {
+            background: #3c8ec1;
+        }
+
+        @media (max-width: 600px) {
+            .info {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            #search {
+                width: 100%;
+            }
+        }
+
+         h4 {
+            margin-top: 0px;
+            margin-bottom: 5px;
+            text-align: middle;
+        }
+
+        .footer {
+            text-align: center;
+            color:#47807a;
+            width: 100%;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+
+    </style>
+
+    <div class="container">
+        <h1>Jadwal Kuliah</h1>
+
+    <table border="1" width="100%" cellpadding="3" cellspacing="5">
+    <tr>
+        <th colspan="1">
+        <h4>Jadwal Kuliah Semester 1</h4>
+        </th>
+    </tr>
+
+    
+    <div class="table-box">
+        <table border="2" width="100%" cellpadding="3" cellspacing="5">
+            <thead>
+            <tr>
+                <th>Hari</th>
+                <th>Jam</th>   
+                <th>Mata Kuliah</th>
+                <th>Ruangan</th>
+            </tr>
+        </thead>
+
+            <tbody id="schedule">
+                <tr data-day="1">
+                    <td>Senin</td>
+                    <td>08:00-10:00</td>
+                    <td>Pemograman WEB</td>
+                    <td>Lab 1</td>
+                </tr>
+
+                <tr data-day="2">
+                    <td>Selasa</td>
+                    <td>10:00-12:00</td>
+                    <td>Basis Data</td>
+                    <td>Lab 2</td>
+                </tr>
+
+                <tr data-day="3">
+                    <td>Rabu</td>
+                    <td>08:00-10:00</td>
+                    <td>Algoritma</td>
+                    <td>Ruang 201</td>
+                </tr>
+
+                <tr data-day="4">
+                    <td>Kamis</td>
+                    <td>13:00-15:00</td>
+                    <td>Sistem Operasi</td>
+                    <td>Ruang 202</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">Kegiatan Mahasiswa</td>
+                    <td>Aula</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="index.html" class="back">← Kembali ke Home</a>
+</div>
+
+  <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Personal Website Sifa Nurfariza</p>
+    </footer>
+
+<script>
+    
+    const search = document.getElementById("search");
+    const rows = document.querySelectorAll("#schedule tr");
+    const total = document.getElementById("total");
+    search.addEventListener("input", function() {
+        let keyword = search.value.toLowerCase();
+        let count = 0;
+        rows.forEach(function(row) {
+            let text = row.textContent.toLowerCase();
+            if (text.includes(keyword)) {
+                row.style.display = "";
+                count++;
+            } else {
+                row.style.display = "none";
+            }
+        });
+        total.textContent = count;
+    });
+    
+    const today = new Date().getDay();
+    rows.forEach(function(row) {
+        if (Number(row.dataset.day) === today) {
+            row.classList.add("today");
+        }
+    });
+
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+</script>
+</body>
+</html>

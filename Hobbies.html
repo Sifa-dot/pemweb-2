@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies.html</title>
+</head>
+<body>
+        <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0d382f;
+    color: #fff;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.eyebrow {
+    color: #64d8c1;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #33a38f;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.card {
+    background: linear-gradient(#0f4343, #3b7e85, #3ecebf);
+    border: 1px solid #28675e;
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 22px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #64d8c1;
+    box-shadow: 0 10px 25px #00000030;
+}
+
+h2 {
+    color: #193530;
+    margin-bottom: 18px;
+    font-size: 21px;
+}
+
+ol, ul {
+    padding-left: 25px;
+    line-height: 2.2;
+}
+
+li {
+    padding: 5px;
+    border-bottom: 1px solid #28675e;
+    transition: .3s;
+}
+
+.back {
+    display: inline-block;
+    background: #349180;
+    color: #2a3a38;
+    border: 0;
+    padding: 11px 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.back:hover {
+    background: #75e5d0;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 30px; }
+    .card { padding: 20px; }
+}
+
+.footer {
+            text-align: center;
+            color:#47807a;
+            width: 100%;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+</style>
+</head>
+<body>
+
+<main class="container">
+    <p class="eyebrow">Hobi</p>
+    <h1>Hobi saya</h1>
+
+    <section class="card">
+        <h2>Beberapa hobi saya:</h2>
+        <ul style="list-style: circle;">
+            <li>Hiking</li>
+            <li>Nonton</li>
+            <li>Lari</li>
+            <li>Membaca</li>
+            <li>Mendengarkan Musik</li>
+        </ul>  
+    </section>
+        <section class="card">
+        <h2>Hobi Lain Saya</h2>
+        <ol type="A">
+            <li>Programming</li>
+            <li>Badminton</li>
+            <li>Traveling</li>
+        </ol>
+        </section>
+
+        <a href="index.html" class="back">← Kembali ke Home</a>
+    
+          <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Personal Website Sifa Nurfariza</p>
+    </footer>
+    
+   <script>
+    document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+   </script>     
+</body>
+</html>

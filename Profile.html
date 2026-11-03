@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile.html</title>
+</head>
+<body>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d382f;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    flex-direction: column;
+}
+
+.hero {
+    width: 90%;
+    max-width: 800px;
+    min-height: 400px;
+    background: linear-gradient(#0f4343, #3b7e85, #3ecebf);
+    border: 1px solid #28675e;
+    border-radius: 25px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 15px 45px #00000050;
+    animation: muncul 1s ease;
+}
+
+.hero-content {
+    max-width: 530px;
+}
+
+.eyebrow {
+    color: #34b897;
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 43px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: #193530;
+}
+
+.btn {
+    display: inline-block;
+    background: #349180;
+    color: #2a3a38;
+    padding: 13px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #75e5d0;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #42bda650;
+}
+
+.profile-photo {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    padding: 7px;
+    background: linear-gradient(135deg, #46cdb7, #167c72);
+    box-shadow: 0 0 35px #42bda650;
+    transition: 0.4s;
+    flex-shrink: 0;
+    transform: translate(100px);
+}
+
+.profile-photo:hover {
+    transform: scale(1.07) rotate(3deg);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #78cdc3;
+}
+
+.more-info {
+    display: none;
+    margin-top: 25px;
+    padding: 18px;
+    background: #174c45;
+    border-radius: 12px;
+    color: #d5f3ec;
+    line-height: 1.7;
+}
+
+.more-info.show {
+    display: block;
+    animation: muncul 0.5s ease;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 650px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 35px 22px;
+    }
+
+    .profile-photo {
+        width: 180px;
+        height: 180px;
+        transform: translate(30px);
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+}
+
+.back {
+    display: inline-block;
+    background: #349180;
+    color: #2a3a38;
+    border: 0;
+    margin-top: 400px;
+    position: relative;
+    padding: 11px 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .3s;
+
+}
+
+ .footer {
+            text-align: center;
+            color:#47807a;
+            width: 100%;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">Selamat Datang di Pofil</p>
+
+        <h1>
+            Hai, Aku<span style="color: #122e2b;">  Sifa Nurfariza</span> </span>
+        </h1>
+
+        <button class="btn" onclick="showProfile()">
+            Kenali Saya →
+        </button>
+
+        <div class="more-info" id="moreInfo">
+            <p>Saya adalah mahasiswi Sistem Informasi angkatan 2026</p>
+            <p>Saat ini saya sedang mempelajari HTML,CSS, dan JavaScript
+               dimata kuliah Pemograman Web serta Algoritma dan Pemograman 1</p>
+            <p>Target saya masuk Prodi ini untuk menciptakan diri saya yang baru , 
+               yaitu menjadi data Analyst atau progremmer (doain yaa).</p>
+        </div>
+
+    </div>
+
+    <div class="profile-photo">
+        <img src="sifa foto.jpeg" alt="Foto Profil">
+    </div>
+
+</section>
+
+    <a href="index.html" class="back">← Kembali ke Home</a>
+
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Personal Website Sifa Nurfariza</p>
+    </footer>
+
+<script>
+
+function showProfile() {
+    const info = document.getElementById("moreInfo");
+    const button = document.querySelector(".btn");
+
+    info.classList.toggle("show");
+
+    if (info.classList.contains("show")) {
+        button.textContent = "Tutup Deskripsi ↑";
+    } else {
+        button.textContent = "Kenal lebih dekat →";
+    }
+}
+
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+</script>
+
+    
+</body>
+</html>

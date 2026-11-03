@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table1.html</title>
+</head>
+<body>
+    <style>
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0d382f;
+            color: white;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #80e6d2;
+            margin-bottom: 10px;
+        }
+      
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .total {
+            background: #20594e;
+            padding: 12px 20px;
+            border-radius: 15px;
+            color: #80e6d2;
+        }
+        #search {
+            padding: 12px 18px;
+            border: 2px solid #65cbb5;
+            border-radius: 25px;
+            background: #164b40;
+            color: white;
+            outline: none;
+            font-size: 14px;
+        }
+        #search::placeholder {
+            color: #b5d8d0;
+        }
+        .table-box {
+            padding: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 3px;
+            min-width: 600px;
+           background: linear-gradient(#0f4343, #3b7e85, #3ecebf);
+        }
+        th {
+            color: #65d6c0;
+            padding: 16px;
+        }
+       
+        th {
+            background: rgba(77, 144, 192, 0.587);
+        }
+
+        td { 
+            color: #79edcc;
+            padding: 10px;
+            text-align: center;
+            transition: 0.3s;
+            background: #3da0ab;
+        }
+        td:first-child {
+            color: #79edcc;
+            font-weight: bold;
+        }
+    
+        tbody tr:hover td {
+            background: #264863;
+        }
+        .today td {
+            background: #3da0ab;
+            border-top: 2px solid #80e6d2;
+            border-bottom: 2px solid #80e6d2;
+        }
+        .today td:first-child {
+            border-left: 2px solid #80e6d2;
+        }
+        .today td:last-child {
+            border-right: 2px solid #80e6d2;
+        }
+        .back {
+            display: block;
+            width: fit-content;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background: #349180;
+            color: #2a3a38;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        .back:hover {
+            background: #3c8ec1;
+        }
+
+        @media (max-width: 600px) {
+            .info {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            #search {
+                width: 100%;
+            }
+        }
+
+         h4 {
+            margin-top: 0px;
+            margin-bottom: 5px;
+            text-align: middle;
+        }
+
+        .footer {
+            text-align: center;
+            color:#47807a;
+            width: 100%;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+
+    </style>
+    
+    <div class="container">
+        <h1>Jadwal Kuliah</h1>
+
+    <table border="1" width="100%" cellpadding="3" cellspacing="5">
+    <tr>
+        <th colspan="1">
+        <h4>Jadwal Kuliah Semester 1</h4>
+        </th>
+    </tr>
+
+    <div class="info">
+        <div class="total">
+            Total Mata Kuliah: <span id="total">7</span>
+        </div>
+        <input type="text" id="search"
+        placeholder="Cari mata kuliah...">
+    </div>
+
+    <div class="table-box">
+        <table border="1" width="100%" cellpadding="5" cellspacing="5">
+        <tr>
+            <th rowspan= "2"> Hari</th>
+            <th colspan= "2" rowspan="2"> Jam</th>   
+            <th colspan= "4"> Mata Kuliah</th> 
+            <th rowspan= "2"> Ruangan</th>
+        </tr>
+        <th>Kode</th>
+        <th colspan="3">Nama Mata Kuliah</th>
+        
+        <tbody id="schedule">
+        <tr data-day="1">
+            <td rowspan= "2"> Kamis</td>
+            <td colspan= "2"> 16:00-17:40</td><td>IF101</td>
+            <td colspan="3">Pemograman Web</td><td colspan="2">Lab 1</td>
+            <tr>
+            <td colspan="2">18:00-19:40</td>
+            <td>IF102</td><td colspan="3">Basis Data</td><td colspan="2">Lab 2</tr>
+        </tr>
+
+        <tr data-day="2">
+           <td rowspan= "3"> Jum'at</td>
+           <td colspan= "2"> 16:00-17:40</td><td>IF103</td>
+           <td colspan="3">Pendidikan Agama Islam</td>
+           <td colspan="2">Ruang 201</td>
+            <tr>
+           <td colspan="2">18:00-19:20</td><td>IF104</td>
+           <td colspan="3">Pendidikan Kewarganegaraan</td>
+           <td colspan="2">Ruang 202</tr>
+        </tr>
+
+            <td colspan="2">19:20-21:00</td>
+            <td>IF105</td>
+            <td colspan="3">Pengantar Teknologi Informasi</td>
+            <td colspan="2">Lab 3</tr>
+        </tr>
+
+       <tr data-day="3">
+            <td rowspan= "4"> Sabtu</td>
+            <td colspan= "2"> 08:00-09:40</td>
+            <td>IF106</td>
+            <td colspan="3">Algoritma dan Pemrograman Web</td>
+            <td colspan="2">Lab 4</td>
+          
+        <tr>
+            <td colspan="2">10:00-11:40</td>
+            <td>IF107</td>
+            <td colspan="3">Dasar Komunikasi Bisnis</td>
+            <td colspan="2">Ruangan 203</tr>
+        </tr> 
+
+        <tr>
+            <td colspan="2">12:50-14:30</td>
+            <td>IF107</td>
+            <td colspan="3">Manajemen dan Organisai </td>
+            <td colspan="2">Ruangan 203</tr>
+        </tr>
+
+         <tr>
+            <td colspan="2">14:30-17:00</td>
+            <td>IF107</td>
+            <td colspan="3">Arkom dan Orkom</td>
+            <td colspan="2">Ruangan 203</tr>
+        </tr> 
+
+        </tr>
+        <tr>
+            <td colspan="7">Kegiatan Akademik / Seminar </td> 
+            <td>Aula</td>
+        </tr>
+        
+        <tr>
+        <th colspan="3">Total Mata Kuliah</th>
+        <th colspan="4">7 Mata Kuliah</th>
+        <th>-</th>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+    <a href="index.html" class="back">← Kembali ke Home</a>
+</div>
+
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Personal Website Sifa Nurfariza</p>
+    </footer>
+
+<script>
+    
+    const search = document.getElementById("search");
+    const rows = document.querySelectorAll("#schedule tr");
+    const total = document.getElementById("total");
+    search.addEventListener("input", function() {
+        let keyword = search.value.toLowerCase();
+        let count = 0;
+        rows.forEach(function(row) {
+            let text = row.textContent.toLowerCase();
+            if (text.includes(keyword)) {
+                row.style.display = "";
+                count++;
+            } else {
+                row.style.display = "none";
+            }
+        });
+        total.textContent = count;
+    });
+    
+    const today = new Date().getDay();
+    rows.forEach(function(row) {
+        if (Number(row.dataset.day) === today) {
+            row.classList.add("today");
+        }
+    });
+
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+</script>
+</body>
+</html>

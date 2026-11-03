@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About-Me.html</title>
+</head>
+<body>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0d382f;
+    color: #fff;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.eyebrow {
+    color: #64d8c1;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #33a38f;
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.intro {
+    color: #c0d8d2;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: linear-gradient(#0f4343, #3b7e85, #3ecebf);
+    border: 1px solid #28675e;
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 22px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #64d8c1;
+    box-shadow: 0 10px 25px #00000030;
+}
+
+h2 {
+    color: #193530;
+    margin-bottom: 18px;
+    font-size: 21px;
+}
+
+ol, ul {
+    padding-left: 25px;
+    line-height: 2.2;
+}
+
+li {
+    padding: 5px;
+    border-bottom: 1px solid #28675e;
+    transition: .3s;
+}
+
+.skill-list li {
+    cursor: pointer;
+}
+
+.skill-list li:hover {
+    color: #64d8c1;
+    padding-left: 15px;
+}
+
+.back {
+    display: inline-block;
+    background: #349180;
+    color: #2a3a38;
+    border: 0;
+    padding: 11px 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.back:hover {
+    background: #75e5d0;
+    transform: translateY(-2px);
+}
+
+#skillInfo {
+    color: #9de8d8;
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 30px; }
+    .card { padding: 20px; }
+}
+
+.footer {
+            text-align: center;
+            color:#47807a;
+            width: 100%;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+</style>
+</head>
+<body>
+
+<main class="container">
+    <p class="eyebrow">About Me</p>
+    <h1>Tentang Saya</h1>
+    <p class="intro">
+        Saya Memiliki ketertarikan pada pengembangan aplikasi web. 
+        Saat ini saya sedang belajar membuat halaman web menggunakan HTML</P>
+
+    <section class="card">
+        <h2>Teknologi yang sedang dipelajari :</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>MySQL</li>
+        </ul>
+      
+    </section>
+
+    <section class="card">
+        <h2>Target Belajar</h2>
+        <p class="intro">Klik salah satu target untuk melihat keterangannya.</p>
+        <ol class="skill-list">
+            <li onclick="showSkill('HTML', 'HTML digunakan untuk membuat struktur halaman website.')">Memahami HTML</li>
+            <li onclick="showSkill(' CSS', 'CSS digunakan untuk mengatur tampilan dan desain website.')">MemahamiCSS</li>
+            <li onclick="showSkill('JavaScript', 'JavaScript digunakan untuk membuat website lebih interaktif.')">MemahamiJavaScript</li>
+             <li onclick="showSkill( 'WEB', 'Sekumpulan Halaman Digital Yang Saling Terhubung ')">Membuat Website Sederhana</li>
+        </ol>
+        <p id="skillInfo">Pilih salah satu target di atas.</p>
+    </section>
+
+    <a href="index.html" class="back">← Kembali ke Home</a>
+</main>
+
+   <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Personal Website Sifa Nurfariza</p>
+    </footer>
+
+
+<script>
+
+function showSkill(name, description) {
+    document.getElementById("skillInfo").textContent =
+        name + ": " + description;
+}
+
+  document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+</script>
+
+</body>
+</html>
